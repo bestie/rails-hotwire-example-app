@@ -1,0 +1,20 @@
+<h1>Turbo optimized Hot Takes</h1>
+
+<p>
+  Page loaded at <%= Time.now %>
+</p>
+
+<ul>
+  <turbo-frame id="hot_takes_list">
+    <% @hot_takes.each do |hot_take| %>
+      <%= render partial: "hot_take_item", locals: { hot_take: hot_take } %>
+    <% end %>
+  </turbo-frame>
+</ul>
+
+<br>
+
+<h1>New Hot Take</h1>
+<turbo-frame id="hot_take_form">
+  <%= render 'form', hot_take: @hot_take %>
+</turbo-frame>
